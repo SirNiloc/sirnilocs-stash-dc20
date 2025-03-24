@@ -1,0 +1,18 @@
+{
+  "id": "sirnilocs-stash-dc20",
+  "title": "SirNiloc's Stash (DC20)",
+  "version": "0.0.1-ea",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "scripts": [
+    "scripts/RegisterEventsRAVN.js"
+  ],
+  "authors": [
+    {
+      "name": "SirNiloc",
+      "flags": {}
+    }
+  ]
+}
