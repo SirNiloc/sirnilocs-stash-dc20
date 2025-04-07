@@ -1,10 +1,13 @@
-const debug = false;
-
 /**
  * Print to console if the script activates.
  */
 Hooks.on("ready", function () {
-    console.log("SirNiloc's Stash | Register Events");
+    console.log("SirNiloc's Stash | RegisterEventsRAVN");
+    //const data = require()
+
+
+    //console.log(data.id);
+
 
     //game.dc20rpg.events.registerEventType("evtGlobal", global, "Global Event");
     //game.dc20rpg.events.registerEventType("evtYule2", yule2, "Yule 2");
@@ -28,17 +31,19 @@ Hooks.on("updateCombat", async (combat, changed, options, userId) => {
 
 });
 
+
+
 /**
- * Prints all scene tokens to console.
+ * Not yet in use
  */
 function global() {
-    //DO stuff that targets everyone
+
     const tokensInScene = getTokensInActiveScene();
 
     for (let i = 0; i < tokensInScene.length; i++) {
         let targetedToken = tokensInScene[i];
         let targetedActor = targetedToken.actor;
-        if (debug) console.log(targetedActor);
+        //DO stuff that targets everyone
 
     }
 
@@ -70,7 +75,6 @@ function topOfTheRound(combat) {
             if (status.id == "incapacitated") isIncap = true;
         });
         if (!isIncap) {
-            if (debug) console.log("Running Apex");
             game.dc20rpg.events.runEventsFor("trgrApexAction", combatActor);
         }
     });
