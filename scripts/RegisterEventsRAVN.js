@@ -1,5 +1,8 @@
 const debug = false;
 
+/**
+ * Print to console if the script activates.
+ */
 Hooks.on("ready", function () {
     console.log("SirNiloc's Stash | Register Events");
 
@@ -11,6 +14,10 @@ Hooks.on("ready", function () {
     game.dc20rpg.events.registerEventTrigger("trgrTopOfRound", "Round Start");
 });
 
+/**
+ * Runs when combat updates
+ * Checks to see if it is the top of a round (aka Round X Turn 0), then runs the round start code
+ */
 Hooks.on("updateCombat", async (combat, changed, options, userId) => {
     if (!combat.started) return;
     const currentTurn = combat.turn;
@@ -21,6 +28,9 @@ Hooks.on("updateCombat", async (combat, changed, options, userId) => {
 
 });
 
+/**
+ * Prints all scene tokens to console.
+ */
 function global() {
     //DO stuff that targets everyone
     const tokensInScene = getTokensInActiveScene();
@@ -34,10 +44,18 @@ function global() {
 
 }
 
+/**
+ * Gets all active tokens in a scene.
+ */
 function getTokensInActiveScene() {
     return this.game.scenes.active.tokens.contents;
 }
 
+/**
+ * At the start of a round this runs
+ * If the target is not incapacitated it triggers "Apex Action"
+ * @param {*} combat 
+ */
 function topOfTheRound(combat) {
 
     const currentRound = combat.round;
@@ -53,7 +71,7 @@ function topOfTheRound(combat) {
         });
         if (!isIncap) {
             if (debug) console.log("Running Apex");
-            game.dc20rpg.events.runEventsFor("trgrApexAction", combatActor);//Trigger if not Incapacitated
+            game.dc20rpg.events.runEventsFor("trgrApexAction", combatActor);
         }
     });
 }

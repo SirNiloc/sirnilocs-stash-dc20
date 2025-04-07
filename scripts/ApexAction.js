@@ -1,7 +1,17 @@
+/**
+ * Print to console if the script activates.
+ */
 Hooks.on("ready", function () {
     console.log("SirNiloc's Stash | Apex Action");
 });
 
+/**
+ * See if it is time to run the apex action or if it is not the correct round for the action
+ * @param {*} currentRound 
+ * @param {*} apexStart 
+ * @param {*} apexEnd 
+ * @returns 
+ */
 function doApexAction(currentRound, apexStart, apexEnd) {
     if (apexStart <= currentRound || currentRound <= apexEnd) {
         return true;
@@ -11,7 +21,10 @@ function doApexAction(currentRound, apexStart, apexEnd) {
 }
 
 
-//DO apex actions for Chris
+/**
+ * Do apex actions for Chris
+ * @param {*} actor 
+ */
 function apexChris(actor) {
     yule1(actor);
     yule2(actor);
@@ -19,7 +32,10 @@ function apexChris(actor) {
 }
 
 
-//Round 3 all creatures on scene make a DC15 mental save, on fail become charmed.
+/**
+ * Round 3 all creatures on scene make a DC15 mental save, on fail become charmed.
+ * @param {*} actor 
+ */
 async function yule1(actor) {
     const combat = game.combat;
     const round = combat.round;
@@ -40,8 +56,11 @@ async function yule1(actor) {
         });
     } else if (debug) console.log("No Yule 1");
 }
-//Round 4-9 cast command on any creature charmed by you If the target passes the Charisma Save you may force the target to follow the command anyway and then they lose the charmed condition and they become immune to your charms permanently.
 
+/**
+ * Round 4-9 cast command on any creature charmed by you If the target passes the Charisma Save you may force the target to follow the command anyway and then they lose the charmed condition and they become immune to your charms permanently.
+ * @param {*} actor 
+ */
 function yule2(actor) {
     const combat = game.combat;
     const round = combat.round;
@@ -69,7 +88,11 @@ function yule2(actor) {
 
     } else if (debug) console.log("Yule 2 requires between round 3 and 9; not round " + round);
 }
-//Round 10: Chrisulhu and all of the Dreadspawn fly up into the sky and all that is left is the glow of an aurora in the sky.
+
+/**
+ * Round 10: Chrisulhu and all of the Dreadspawn fly up into the sky and all that is left is the glow of an aurora in the sky.
+ * @param {*} actor 
+ */
 function yule3(actor) {
     const combat = game.combat;
     const round = combat.round;
