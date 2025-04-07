@@ -2,7 +2,7 @@
  * Print to console if the script activates.
  */
 Hooks.on("ready", function () {
-    console.log("SirNiloc's Stash | Apex Action");
+    console.log("SirNiloc's Stash | ApexAction");
 });
 
 /**
