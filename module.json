@@ -7,7 +7,8 @@
     "verified": "12"
   },
   "scripts": [
-    "scripts/RegisterEventsRAVN.js"
+    "scripts/RegisterEventsRAVN.js",
+    "scripts/ApexAction.js"
   ],
   "authors": [
     {
