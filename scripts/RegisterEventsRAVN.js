@@ -1,7 +1,7 @@
 const debug = false;
 
 Hooks.on("ready", function () {
-    console.log("RAVN Quest | Register Events");
+    console.log("SirNiloc's Stash | Register Events");
 
     //game.dc20rpg.events.registerEventType("evtGlobal", global, "Global Event");
     //game.dc20rpg.events.registerEventType("evtYule2", yule2, "Yule 2");
@@ -21,20 +21,20 @@ Hooks.on("updateCombat", async (combat, changed, options, userId) => {
 
 });
 
-function global(){
+function global() {
     //DO stuff that targets everyone
     const tokensInScene = getTokensInActiveScene();
 
-    for(let i = 0; i < tokensInScene.length; i++){
+    for (let i = 0; i < tokensInScene.length; i++) {
         let targetedToken = tokensInScene[i];
         let targetedActor = targetedToken.actor;
-        if(debug) console.log(targetedActor);
+        if (debug) console.log(targetedActor);
 
     }
 
 }
 
-function getTokensInActiveScene(){
+function getTokensInActiveScene() {
     return this.game.scenes.active.tokens.contents;
 }
 
