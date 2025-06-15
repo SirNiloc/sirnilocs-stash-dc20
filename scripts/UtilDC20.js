@@ -129,32 +129,3 @@ function getRandomWeaponStyle() {
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-function updateSkill(actor, skill, mastery, expert) {
-    const skillKeyMaster = 'system.skills.' + skill + '.mastery';
-    const skillKeyExpert = 'system.skills.' + skill + '.expertise';
-
-    actor.update({
-        [skillKeyMaster]: mastery,
-        [skillKeyExpert]: expert
-
-    });
-}
-
-function updateTradeSkill(actor, skill, mastery, expert) {
-    const skillKeyMaster = 'system.tradeSkills.' + skill + '.mastery';
-    const skillKeyExpert = 'system.tradeSkills.' + skill + '.expertise';
-
-    actor.update({
-        [skillKeyMaster]: mastery,
-        [skillKeyExpert]: expert
-
-    });
-}
-
-function updateLanguage(actor, language, mastery) {
-    const languageKeyMaster = 'system.languages.' + language + '.mastery';
-    actor.update({
-        [languageKeyMaster]: mastery
-    });
-}
