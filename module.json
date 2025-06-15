@@ -1,13 +1,15 @@
 {
   "id": "sirnilocs-stash-dc20",
   "title": "SirNiloc's Stash (DC20)",
-  "version": "0.0.1-ea",
+  "version": "1.0.0",
+  "library": true,
   "compatibility": {
-    "minimum": "12",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "13"
   },
   "scripts": [
     "scripts/RegisterEventsRAVN.js",
+	"scripts/UtilDC20.js",
     "scripts/ApexAction.js"
   ],
   "authors": [
