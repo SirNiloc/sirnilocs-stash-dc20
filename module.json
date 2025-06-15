@@ -9,13 +9,34 @@
   },
   "scripts": [
     "scripts/RegisterEventsRAVN.js",
-	"scripts/UtilDC20.js",
+    "scripts/UtilDC20.js",
     "scripts/ApexAction.js"
   ],
   "authors": [
     {
       "name": "SirNiloc",
+      "email": "sirniloc@ravn-quest.com",
+      "url": "www.ravn-quest.com",
+      "discord": "sirniloc",
       "flags": {}
     }
-  ]
+  ],
+  "description": "<p>Utilies I use that may be helpful for other creators.</p>",
+  "url": "https://github.com/SirNiloc/sirnilocs-stash-dc20",
+  "relationships": {
+    "systems": [
+      {
+        "id": "dc20rpg",
+        "type": "system",
+        "compatibility": {}
+      }
+    ],
+    "recommends": [
+      {
+        "id": "ravn-quest",
+        "type": "module",
+        "compatibility": {}
+      }
+    ]
+  }
 }
