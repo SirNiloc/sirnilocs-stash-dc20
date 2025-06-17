@@ -59,7 +59,7 @@ function getTokensInActiveScene() {
 /**
  * At the start of a round this runs
  * If the target is not incapacitated it triggers "Apex Action"
- * @param {*} combat 
+ * @param {Combat} combat 
  */
 function topOfTheRound(combat) {
 

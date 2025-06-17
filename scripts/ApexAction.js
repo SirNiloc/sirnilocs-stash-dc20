@@ -7,9 +7,9 @@ Hooks.on("ready", function () {
 
 /**
  * See if it is time to run the apex action or if it is not the correct round for the action
- * @param {*} currentRound 
- * @param {*} apexStart 
- * @param {*} apexEnd 
+ * @param {*} currentRound The current combat round
+ * @param {*} apexStart The round the apex action starts
+ * @param {*} apexEnd The round the apex action ends
  * @returns 
  */
 function doApexAction(currentRound, apexStart, apexEnd) {

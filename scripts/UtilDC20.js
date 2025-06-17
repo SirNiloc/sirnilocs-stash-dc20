@@ -1,3 +1,19 @@
+/**
+ * Creates a custom weapon style for DC20.
+ * @param {String} customStyle this is the name of your new weapon style such as "pistol"
+ */
+function createCustomStyle(customStyle){
+    
+    var styleName = capitalizeWords(customStyle.trim()+ " Style");
+
+    var styleKey = customStyle.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
+
+    console.log("SirNiloc's Stash DC20 | Create Custom Style: "+styleName);
+
+    CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
+    CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles[styleKey] = styleName;
+}
+
 function getLabelFromKey(key, labels) {
     if (!labels) return key;
     let label = labels[key];
@@ -7,8 +23,8 @@ function getLabelFromKey(key, labels) {
 
 /**
  * Get a random value based on the weight of the random values.
- * @param {*} options 
- * @returns 
+ * @param {*} options A value and a weight
+ * @returns {*} The value of the random selection
  */
 function getRandomWeighted(options) {
     var i;
@@ -27,20 +43,11 @@ function getRandomWeighted(options) {
     return options[i].value;
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 function capitalizeWords(str) {
   return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-}
-
-function createCustomStyle(customStyle){
-    
-    var styleName = capitalizeWords(customStyle.trim()+ " Style");
-
-    var styleKey = customStyle.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
-
-    console.log("SirNiloc's Stash DC20 | Create Custom Style: "+styleName);
-
-    CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
-    CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles[styleKey] = styleName;
 }
 
 function splitObj(objectToSplit) {
@@ -125,7 +132,4 @@ function getRandomRangedWeaponStyle() {
 }
 function getRandomWeaponStyle() {
     return getRandomFromArray(splitObj(CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles));
-}
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
 }
