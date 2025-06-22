@@ -13,7 +13,7 @@ Hooks.on("ready", function () {
  * @returns 
  */
 function doApexAction(currentRound, apexStart, apexEnd) {
-    if (apexStart <= currentRound || currentRound <= apexEnd) {
+    if (apexStart <= currentRound && currentRound <= apexEnd) {
         return true;
     }
 
