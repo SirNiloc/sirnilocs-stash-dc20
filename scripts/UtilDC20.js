@@ -1,7 +1,7 @@
 /**
  * Creates a custom weapon style for DC20.
  * @param {String} customStyle this is the name of your new weapon style such as "pistol"
- */
+
 function createCustomStyle(customStyle){
     
     var styleName = capitalizeWords(customStyle.trim()+ " Style");
@@ -13,6 +13,7 @@ function createCustomStyle(customStyle){
     CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
     CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles[styleKey] = styleName;
 }
+     */
 
 function getLabelFromKey(key, labels) {
     if (!labels) return key;
@@ -47,7 +48,7 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 function capitalizeWords(str) {
-  return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
 function splitObj(objectToSplit) {

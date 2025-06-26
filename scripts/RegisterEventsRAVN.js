@@ -17,6 +17,8 @@ Hooks.on("ready", function () {
     game.dc20rpg.events.registerEventTrigger("trgrTopOfRound", "Round Start");
 });
 
+
+
 /**
  * Runs when combat updates
  * Checks to see if it is the top of a round (aka Round X Turn 0), then runs the round start code

@@ -12,6 +12,7 @@
   "scripts": [
     "scripts/RegisterEventsRAVN.js",
     "scripts/UtilDC20.js",
+	"scripts/CustomStyleBuilder.js",
     "scripts/ApexAction.js"
   ],
   "authors": [
