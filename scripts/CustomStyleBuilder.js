@@ -25,16 +25,13 @@ class CustomStyleRegistry {
         this.customStylesRAVN.push(condition2Add);
         this.customStyles++;
 
-        console.log(this.customStylesRAVN);
     }
 
     static addCustomStyleToActor(actor) {
         if (actor.system.conditionals === null);
         else {
-            console.log("Add conditionals");
-            console.log(this.customStylesRAVN);
             this.customStylesRAVN.forEach(conditional => actor.system.conditionals.push(conditional));
-            console.log(actor.system.conditionals);
+
         }
 
     }
