@@ -1,20 +1,9 @@
 /**
- * Creates a custom weapon style for DC20.
- * @param {String} customStyle this is the name of your new weapon style such as "pistol"
-
-function createCustomStyle(customStyle){
-    
-    var styleName = capitalizeWords(customStyle.trim()+ " Style");
-
-    var styleKey = customStyle.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
-
-    console.log("SirNiloc's Stash DC20 | Create Custom Style: "+styleName);
-
-    CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
-    CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles[styleKey] = styleName;
-}
-     */
-
+ * 
+ * @param {String} key 
+ * @param {Array} labels 
+ * @returns 
+ */
 function getLabelFromKey(key, labels) {
     if (!labels) return key;
     let label = labels[key];
@@ -44,27 +33,78 @@ function getRandomWeighted(options) {
     return options[i].value;
 }
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-function capitalizeWords(str) {
-    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+/**
+ * Takes a string and capitalizes the first letter.
+ * @param {String} word lowercase string
+ * @returns string with an uppercase first letter
+ */
+function capitalizeFirstLetter(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
+/**
+ * Takes a string and capializes the first letter of each word
+ * @param {String} str string of words
+ * @returns string of words with each word starting with a capital letter
+ */
+function capitalizeWords(str) {
+    return str.split(' ').map(word => capitalizeFirstLetter(word)).join(' ');
+}
+
+/**
+ * Takes an object and splits it up into an array
+ * @param {*} objectToSplit the object to be converted to an array
+ * @returns the object as an array
+ */
 function splitObj(objectToSplit) {
     return Object.keys(objectToSplit);
 }
+/**
+ * Selects a random object from an array
+ * @param {Array} objArray array of objects
+ * @returns a random object
+ */
 function getRandomFromArray(objArray) {
     return objArray.at(getRandomInt(1, objArray.length) - 1);
 }
+/**
+ * Gives a random integer
+ * @param {*} min the lowesst integer to be selected
+ * @param {*} max the largest integer to me selected
+ * @returns random integer between the two numbers
+ */
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    if (max > min)
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    else
+        return Math.floor(Math.random() * (min - max + 1)) + max;
 }
+/**
+ * Get a random true or false outcome
+ * @returns random boolean
+ */
 function getRandomBoolean() {
     return Math.random() < 0.5;
 }
+
+/**
+ * Get a random boolean outcome based on a probability
+ * @param {double} percent probability to be true
+ * @returns true or false
+ */
+function getRandomFromProbability(percent) {
+    if (percent > 1) percent = percent / 100.00;
+
+    return Math.random() < percent;
+
+}
+
+/**
+ * Get a random DC20 unit of time
+ * @returns days/minutes/hours/months/rounds/turns/permanent/until canceled/years
+ */
 function getRandomTimeUnit() {
     return getRandomFromArray(splitObj(CONFIG.DC20RPG.DROPDOWN_DATA.timeUnits));
 }

@@ -1,11 +1,4 @@
 /**
- * Print to console if the script activates.
- */
-Hooks.on("ready", function () {
-    console.log("SirNiloc's Stash | ApexAction");
-});
-
-/**
  * See if it is time to run the apex action or if it is not the correct round for the action
  * @param {*} currentRound The current combat round
  * @param {*} apexStart The round the apex action starts
@@ -23,7 +16,7 @@ function doApexAction(currentRound, apexStart, apexEnd) {
 
 /**
  * Do apex actions for Chris
- * @param {*} actor 
+ * @param {Actor} actor 
  */
 function apexChris(actor) {
     yule1(actor);
@@ -34,7 +27,7 @@ function apexChris(actor) {
 
 /**
  * Round 3 all creatures on scene make a DC15 mental save, on fail become charmed.
- * @param {*} actor 
+ * @param {Actor} actor 
  */
 async function yule1(actor) {
     const combat = game.combat;

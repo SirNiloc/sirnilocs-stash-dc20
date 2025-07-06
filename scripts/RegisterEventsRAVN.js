@@ -3,21 +3,10 @@
  */
 Hooks.on("ready", function () {
     console.log("SirNiloc's Stash | RegisterEventsRAVN");
-    //const data = require()
-
-
-    //console.log(data.id);
-
-
-    //game.dc20rpg.events.registerEventType("evtGlobal", global, "Global Event");
-    //game.dc20rpg.events.registerEventType("evtYule2", yule2, "Yule 2");
-    //game.dc20rpg.events.registerEventType("evtYule3", yule3, "Yule 3");
 
     game.dc20rpg.events.registerEventTrigger("trgrApexAction", "Apex Action");
     game.dc20rpg.events.registerEventTrigger("trgrTopOfRound", "Round Start");
 });
-
-
 
 /**
  * Runs when combat updates
@@ -32,8 +21,6 @@ Hooks.on("updateCombat", async (combat, changed, options, userId) => {
     }
 
 });
-
-
 
 /**
  * Not yet in use

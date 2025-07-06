@@ -12,21 +12,19 @@ class CustomStyleRegistry {
 
         var styleKey = customStyle.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
 
-        console.log("SirNiloc's Stash DC20 | Create Custom Style: " + styleName);
-
         CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
         CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles[styleKey] = styleName;
 
         var condition2Add = CustomStyleRegistry.buildCustomStyleConditional(styleKey, conditions);
 
-        console.log("Add conditional");
-        console.log(condition2Add);
-
         this.customStylesRAVN.push(condition2Add);
         this.customStyles++;
-
     }
 
+    /**
+     * Adds functionality to actors for the weapon style trigger and effect
+     * @param {Actor} actor this is the actor that conditionals will be added on
+     */
     static addCustomStyleToActor(actor) {
         if (actor.system.conditionals === null);
         else {
@@ -36,6 +34,12 @@ class CustomStyleRegistry {
 
     }
 
+    /**
+     * 
+     * @param {String} weaponStyle the key for the weapon style
+     * @param {String[]} conditions the array of conditions that trigger the custom weapons tyle effect
+     * @returns the custom style conditional
+     */
     static buildCustomStyleConditional(weaponStyle, conditions) {
         const weaponStyleLabel = getLabelFromKey(weaponStyle, CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles)
 
@@ -76,6 +80,9 @@ class CustomStyleRegistry {
     }
 }
 
+/**
+ * Actor update hook, adds the custom styles to the actor.
+ */
 Hooks.on("updateActor", (actor, data, options, userId) => {
     CustomStyleRegistry.addCustomStyleToActor(actor);
 });
