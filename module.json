@@ -1,7 +1,7 @@
 {
   "id": "sirnilocs-stash-dc20",
   "title": "SirNiloc's Stash (DC20)",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "library": true,
   "manifest": "https://github.com/SirNiloc/sirnilocs-stash-dc20/releases/latest/download/module.json",
   "download": "https://github.com/SirNiloc/sirnilocs-stash-dc20/releases/latest/download/module.zip",
@@ -12,7 +12,7 @@
   "scripts": [
     "scripts/RegisterEventsRAVN.js",
     "scripts/UtilDC20.js",
-	"scripts/CustomStyleBuilder.js",
+    "scripts/CustomStyleBuilder.js",
     "scripts/ApexAction.js"
   ],
   "authors": [
