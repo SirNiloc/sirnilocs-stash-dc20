@@ -7,13 +7,16 @@ class CustomStyleRegistry {
      * @param {String} customStyle this is the name of your new weapon style such as "pistol"
      * @param {Array} conditions system condition keys that trigger the weapon style
      */
-    static createCustomStyle(customStyle, conditions) {
+    static createCustomStyle(customStyle, conditions, ranged = false) {
 
         var styleName = capitalizeWords(customStyle.trim() + " Style");
 
         var styleKey = customStyle.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
 
-        CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
+
+        if (ranged) CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
+        else CONFIG.DC20RPG.DROPDOWN_DATA.meleeWeaponStyles[styleKey] = styleName;
+
         CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles[styleKey] = styleName;
 
         var condition2Add = CustomStyleRegistry.buildCustomStyleConditional(styleKey, conditions);
@@ -28,11 +31,13 @@ class CustomStyleRegistry {
      * @param {String} styleName name of the style
      * @param {Array} conditions system condition keys that trigger the weapon style
      */
-    static addCustomStyle(styleKey, styleName, conditions) {
+    static addCustomStyle(styleKey, styleName, conditions, ranged = false) {
 
         var styleKey = styleKey.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
 
-        CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
+        if (ranged) CONFIG.DC20RPG.DROPDOWN_DATA.rangedWeaponStyles[styleKey] = styleName;
+        else CONFIG.DC20RPG.DROPDOWN_DATA.meleeWeaponStyles[styleKey] = styleName;
+
         CONFIG.DC20RPG.DROPDOWN_DATA.weaponStyles[styleKey] = styleName;
 
         var condition2Add = CustomStyleRegistry.buildCustomStyleConditional(styleKey, conditions);
